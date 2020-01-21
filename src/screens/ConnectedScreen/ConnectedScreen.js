@@ -37,7 +37,7 @@ export default function ConnectedScreen(props) {
                 justify="center"
                 alignItems="center"
             >
-                <Grid item xs={12} sm container className={classes.rootContainer}>
+                <Grid item xs={12} md  container className={classes.rootContainer}>
                     <CardComponent title={'¿Qué es React?'} text={text.react} />
                 </Grid>
                 <Grid item xs={12} sm container className={classes.rootContainer}>

@@ -2,9 +2,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles({
     card: {
-        minWidth: 275,
         maxWidth: '100%',
-        maxHeight:'205px'
+        maxHeight:'205px',
     },
     bullet: {
         display: 'inline-block',
