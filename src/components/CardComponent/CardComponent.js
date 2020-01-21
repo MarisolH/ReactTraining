@@ -17,12 +17,15 @@ export default function CardComponent(props) {
     >
         <Card className={classes.neuphormism}>
             <CardContent>
-                <Typography variant='h6' align='center' className={classes.title} color='textPrimary' gutterBottom>
-                    {props.title}
-                </Typography>
-                <Typography variant='caption' className={classes.text} color='textSecondary' gutterBottom>
-                    {props.text}
-                </Typography>
+                {props.structure ? props.structure : <React.Fragment>
+                    <Typography variant='h6' align='center' className={classes.title} color='textPrimary' gutterBottom>
+                        {props.title}
+                    </Typography>
+                    <Typography variant='caption' className={classes.text} color='textSecondary' gutterBottom>
+                        {props.text}
+                    </Typography>
+                </React.Fragment>
+                }
             </CardContent>
         </Card>
     </Grid>
