@@ -1,14 +1,22 @@
 import React from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import ConnectedScreen from './screens/ConnectedScreen'
+import MigueScreen from './screens/MigueScreen'
+import JaviScreen from './screens/JaviScreen'
+import VicScreen from './screens/VicScreen'
+import RodoScreen from './screens/RodoScreen'
 
 export default () => {
-    return (
-        <HashRouter>
+    return <React.Fragment>
+        <BrowserRouter>
             <Switch>
-                <Route path={'/'} component={ConnectedScreen}></Route>
-                <Route path={'/connected'} component={ConnectedScreen}></Route>
+                <Route exact path={'/'} component={ConnectedScreen}></Route>
+                <Route path={'/MigueScreen'} component={MigueScreen}></Route>
+                <Route path={'/JaviScreen'} component={JaviScreen}></Route>
+                <Route path={'/VicScreen'} component={VicScreen}></Route>
+                <Route path={'/RodoScreen'} component={RodoScreen}></Route>
             </Switch>
-        </HashRouter>
-    )
+        </BrowserRouter>
+    </React.Fragment>
+
 }

@@ -19,7 +19,7 @@ export default function DecorationForScreen(props) {
         <Grid item xs={12} md={7} lg={7} sm container >
             <div className={classes.transform} />
             <Typography variant='h3' align='center' className={classes.title} color='textPrimary' gutterBottom>
-            <EmojiEventsIcon fontSize='large' color='primaryF'></EmojiEventsIcon>
+            <EmojiEventsIcon fontSize='large' color='primary'></EmojiEventsIcon>
                     {props.title}
             <ModalComponent title={'Pre-requisitos'} buttonText={'Ejemplo de Modal'} confirmText={'Cerrar'}/>
             </Typography>
