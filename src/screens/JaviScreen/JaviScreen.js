@@ -18,7 +18,7 @@ export default function JaviScreen(props) {
     const [apellido, setApellido] = useState('');
     const [telefono, setTelefono] = useState('');
     const [direccion, setDireccion] = useState('');
-
+    
     return <React.Fragment>
         <Grid
             container
@@ -56,22 +56,22 @@ export default function JaviScreen(props) {
                         <h1>Curso de react</h1>
                     </Grid>
                     <Grid item xs={8} md={5} lg={5} sm container >
-                        <TextInput label={"Nombre"} onChange={setNombre}></TextInput>
+                        <TextInput label={"Nombre"} setValue={setNombre} ></TextInput>
                     </Grid>
                     <Grid item xs={8} md={5} lg={5} sm container >
-                        <TextInput label={"Apellido"} onChange={setApellido}></TextInput>
+                        <TextInput label={"Apellido"} setValue={setApellido}></TextInput>
                     </Grid>
                     <Grid item xs={8} md={5} lg={5} sm container >
-                        <TextInput label={"Teléfono"} onChange={setTelefono}></TextInput>
+                        <TextInput label={"Teléfono"} setValue={setTelefono}></TextInput>
                     </Grid>
                     <Grid item xs={8} md={5} lg={5} sm container >
-                        <TextInput label={"Dirección"} onChange={setDireccion}></TextInput>
+                        <TextInput label={"Dirección"} setValue={setDireccion}></TextInput>
                     </Grid>
                     <Grid>   
                         <br></br>
                     </Grid>
                     <Grid>
-                    <ModalComponent title={'Datos del Usuario'} buttonText={'Registrar'} nombreusuario={nombre} confirmText={'Cerrar'}/>
+                    <ModalComponent title={'Datos del Usuario'} buttonText={'Registrar'} nombreusuario={nombre} apellidousuario={apellido} telefonousuario={telefono} direccionusuario={direccion} confirmText={'Cerrar'}/>
                         {/* <MyButton value={"Registrar"} text={"Registrar"} >
                             
                         </MyButton> */}
