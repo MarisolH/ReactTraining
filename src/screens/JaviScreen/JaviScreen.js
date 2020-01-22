@@ -1,16 +1,23 @@
-import React from 'react'
+import React, { useState }  from 'react'
 import Grid from '@material-ui/core/Grid';
 
 import MenuBar from '../../components/MenuBar/MenuBar';
 import CardComponent from '../../components/CardComponent/CardComponent';
 import TextInput from '../../components/TextInput/TextInput';
+import MyButton from '../../components/MyButton';
 // import Typography from '@material-ui/core/Typography';
+import ModalComponent from '../../components/ModalComponent/ModalComponent'
 
 import { useStyles } from './JaviScreenStyles';
+
 
 export default function JaviScreen(props) {
     const classes = useStyles()
     // console.log(props)
+    const [nombre, setNombre] = useState('');
+    const [apellido, setApellido] = useState('');
+    const [telefono, setTelefono] = useState('');
+    const [direccion, setDireccion] = useState('');
 
     return <React.Fragment>
         <Grid
@@ -23,6 +30,7 @@ export default function JaviScreen(props) {
                 <MenuBar/>
             </Grid>
         </Grid>
+        
         <Grid
             container
             direction="column"
@@ -30,27 +38,52 @@ export default function JaviScreen(props) {
             alignItems="center"
             className={classes.rootContainer}
         >
-
+         {/* <CardComponent title={"hola"} rootContainer>  */}
             <Grid
                 container
-                direction="column"
-                justify="top"
-                alignItems="left"
+                direction="row"
+                justify="center"
+                alignItems="center"
                 className={classes.rootContainer}
             >
-                {/* <CardComponent title={"hola"}> */}
+                <Grid xs={4} md container>
                     <Grid item xs={6} md={5} lg={5} sm container >
-                        <img alt='' className={classes.illustration} src={require('../../assets/javier.png')}></img>
+                        <img width={"200%"} alt='' className={classes.illustration} src={require('../../assets/javier.png')}></img>
                     </Grid>
-                    <Grid item xs={6} md={5} lg={5} sm container >
-                        <TextInput label={"Nombre"}></TextInput>
+                </Grid>
+                <Grid xs={8} md container direction="column" >
+                    <Grid item xs={8} md={5} lg={5} sm container >
+                        <h1>Curso de react</h1>
                     </Grid>
-                    <Grid item xs={6} md={5} lg={5} sm container >
-                        <TextInput label={"Apellido"}></TextInput>
+                    <Grid item xs={8} md={5} lg={5} sm container >
+                        <TextInput label={"Nombre"} onChange={setNombre}></TextInput>
                     </Grid>
-                {/* </CardComponent> */}
+                    <Grid item xs={8} md={5} lg={5} sm container >
+                        <TextInput label={"Apellido"} onChange={setApellido}></TextInput>
+                    </Grid>
+                    <Grid item xs={8} md={5} lg={5} sm container >
+                        <TextInput label={"Teléfono"} onChange={setTelefono}></TextInput>
+                    </Grid>
+                    <Grid item xs={8} md={5} lg={5} sm container >
+                        <TextInput label={"Dirección"} onChange={setDireccion}></TextInput>
+                    </Grid>
+                    <Grid>   
+                        <br></br>
+                    </Grid>
+                    <Grid>
+                    <ModalComponent title={'Datos del Usuario'} buttonText={'Registrar'} nombreusuario={nombre} confirmText={'Cerrar'}/>
+                        {/* <MyButton value={"Registrar"} text={"Registrar"} >
+                            
+                        </MyButton> */}
+                    </Grid>
+                </Grid>
+
+                
+                    
+                    
+             
             </Grid>  
-            
+            {/* </CardComponent>  */}
 
         </Grid>
     </React.Fragment>
