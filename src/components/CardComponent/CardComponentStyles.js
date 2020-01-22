@@ -11,7 +11,8 @@ export const useStyles = makeStyles({
         transform: 'scale(0.8)',
     },
     title: {
-        fontSize: 14,
+        fontSize: 20,
+        fontWeight: "bold"
     },
     text: {
         textAlign:'justify',
@@ -23,5 +24,9 @@ export const useStyles = makeStyles({
         borderRadius: '4px',
         background: ' #ffffff',
         boxShadow: '8px 8px 25px #e3e3e3, -8px -8px 25px #ffffff',
+    },
+    img:{
+        width: '400px',
+        height: '450px'
     }
 });
