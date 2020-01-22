@@ -1,14 +1,16 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid';
+// import TextField from '@material-ui/core/TextField';
+import GridComp from '../../components/CardComponent/CardComponent';
 
 import MenuBar from '../../components/MenuBar/MenuBar';
 // import Typography from '@material-ui/core/Typography';
 import { useStyles } from './VicScreenStyles';
 
 export default function VicScreen(props) {
+
     const classes = useStyles()
     // console.log(props)
-
     return <React.Fragment>
         <Grid
             container
@@ -27,8 +29,19 @@ export default function VicScreen(props) {
             alignItems="center"
             className={classes.rootContainer}
         >
-                Aquí irá tu código V
-
+             <Grid
+        container
+        direction="column"
+        justify="left"
+        alignItems="left">
+        <img alt='' className={classes.illustration} src={require('../../assets/victor.png')}></img>
         </Grid>
+                <div>
+                    <h1></h1>
+                </div>
+                <GridComp>
+                </GridComp>
+        </Grid>
+
     </React.Fragment>
 }
