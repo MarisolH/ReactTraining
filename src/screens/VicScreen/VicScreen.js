@@ -29,13 +29,6 @@ export default function VicScreen(props) {
             alignItems="center"
             className={classes.rootContainer}
         >
-             <Grid
-        container
-        direction="column"
-        justify="left"
-        alignItems="left">
-        <img alt='' className={classes.illustration} src={require('../../assets/victor.png')}></img>
-        </Grid>
                 <div>
                     <h1></h1>
                 </div>
