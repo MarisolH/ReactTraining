@@ -1,6 +1,7 @@
 import React, { useState }  from 'react'
 import Grid from '@material-ui/core/Grid';
-
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import MenuBar from '../../components/MenuBar/MenuBar';
 import CardComponent from '../../components/CardComponent/CardComponent';
 import TextInput from '../../components/TextInput/TextInput';
@@ -38,6 +39,8 @@ export default function JaviScreen(props) {
             alignItems="center"
             className={classes.rootContainer}
         >
+            <Card className={classes.neuphormism}>
+            <CardContent>
          {/* <CardComponent title={"hola"} rootContainer>  */}
             <Grid
                 container
@@ -84,7 +87,9 @@ export default function JaviScreen(props) {
              
             </Grid>  
             {/* </CardComponent>  */}
-
+                </CardContent>
+            </Card>
         </Grid>
+        
     </React.Fragment>
 }
