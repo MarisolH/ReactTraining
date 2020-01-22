@@ -4,11 +4,21 @@ import Grid from '@material-ui/core/Grid';
 import MenuBar from '../../components/MenuBar/MenuBar';
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from './RodoScreenStyles';
+import CardComponent from '../../components/CardComponent/CardComponent';
+import TextInput from '../../components/TextInput/TextInput';
 
 export default function RodoScreen(props) {
     const classes = useStyles()
-    console.log(props)
-
+    //console.log(props)
+    const text ={
+        listaDeLabel : [
+            {titulo:'Información Escolar'
+            ,Escuela:'Escuela'
+            ,Licenciatura: 'Licenciatura'
+            ,Campodeestudio: 'Campo de estudio'
+            ,AñoFinal:'Año final'}
+        ]
+    } 
     return <React.Fragment>
         <Grid
             container
@@ -26,9 +36,13 @@ export default function RodoScreen(props) {
             justify="center"
             alignItems="center"
             className={classes.rootContainer}
-        >
-                Aquí irá tu código R
-
+        >      
+       
+             <CardComponent alignItems='right' title={<Typography variant="h3" component="h2"> {text.listaDeLabel[0].titulo}</Typography>}></CardComponent>
+            
+            
+            
+            
         </Grid>
     </React.Fragment>
 }
