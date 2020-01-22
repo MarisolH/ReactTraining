@@ -26,7 +26,7 @@ export const useStyles = makeStyles({
         boxShadow: '8px 8px 25px #e3e3e3, -8px -8px 25px #ffffff',
     },
     img:{
-        width: '400px',
+        width: '250px',
         height: '450px'
     }
 });
