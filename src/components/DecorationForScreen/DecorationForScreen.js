@@ -1,9 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
-import ModalComponent from '../ModalComponent/ModalComponent'
-
 import { useStyles } from './DecorationForScreenStyles'
 
 export default function DecorationForScreen(props) {
@@ -19,9 +16,7 @@ export default function DecorationForScreen(props) {
         <Grid item xs={12} md={7} lg={7} sm container >
             <div className={classes.transform} />
             <Typography variant='h3' align='center' className={classes.title} color='textPrimary' gutterBottom>
-            <EmojiEventsIcon fontSize='large' color='primary'></EmojiEventsIcon>
-                    {props.title}
-            <ModalComponent title={'Pre-requisitos'} buttonText={'Ejemplo de Modal'} confirmText={'Cerrar'}/>
+                <img alt='' width={'70%'} className={classes.logo} src={require('../../assets/keeplearning.png')}></img>
             </Typography>
 
         </Grid>

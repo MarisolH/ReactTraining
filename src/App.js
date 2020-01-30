@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ConnectedScreen from './screens/ConnectedScreen'
 import MigueScreen from './screens/MigueScreen'
 import JaviScreen from './screens/JaviScreen'
