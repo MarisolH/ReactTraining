@@ -29,6 +29,6 @@ export const useStyles = makeStyles(theme => ({
         },
     },
     title: {
-        margin: '20px'
+        margin: '10px'
     }
 }));

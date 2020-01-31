@@ -20,8 +20,10 @@ export const useStyles = makeStyles({
         marginBottom: 12,
     },
     neuphormism: {
+        maxWidth:'40em',
         borderRadius: '4px',
         background: ' #ffffff',
-        boxShadow: '8px 8px 25px #e3e3e3, -8px -8px 25px #ffffff',
+        boxShadow: '3px 3px 4px #e3e3e3,  -3px -3px 4px #fdfdfd',
+        
     }
 });

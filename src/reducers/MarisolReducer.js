@@ -1,9 +1,9 @@
 import { 
-    DATA_EXAMPLE_BEGIN, 
-    DATA_EXAMPLE_SUCCESS, 
-    DATA_EXAMPLE_FAILURE, 
-    CLEAR_DATA_EXAMPLE, 
-} from '../actions/FirstActions';
+    DATA_MARISOL_BEGIN, 
+    DATA_MARISOL_SUCCESS, 
+    DATA_MARISOL_FAILURE, 
+    CLEAR_DATA_MARISOL, 
+} from '../actions/MarisolActions';
 
 const initialState = {
     data: {},
@@ -11,26 +11,26 @@ const initialState = {
     error:''
 };
 
-export default function DataExampleReducer(state = initialState, action) {
+export default function DataMarisolReducer(state = initialState, action) {
     switch (action.type) {
-        case DATA_EXAMPLE_BEGIN:
+        case DATA_MARISOL_BEGIN:
             return {
                 ...state,
                 isLoading: true
             }
-        case DATA_EXAMPLE_SUCCESS:
+        case DATA_MARISOL_SUCCESS:
             let data = action.payload.data;
             return {
                 ...state,
                 data,
                 isLoading: false,
             }
-        case DATA_EXAMPLE_FAILURE:
+        case DATA_MARISOL_FAILURE:
             return {
                 ...state,
                 isLoading: false
             }
-        case CLEAR_DATA_EXAMPLE:
+        case CLEAR_DATA_MARISOL:
             return {
                 ...state,
                 data: {},
@@ -41,13 +41,13 @@ export default function DataExampleReducer(state = initialState, action) {
     }
 };
 
-export const getDataExample = state => {
+export const getDataMarisol = state => {
     return state.data
 }
-export const getDataExampleError = state => {
+export const getDataMarisolError = state => {
     return state.error
 }
-export const getDataExampleIsLoading = state => {
+export const getDataMarisolIsLoading = state => {
     return state.error
 }
 //FIRSTS
