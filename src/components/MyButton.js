@@ -7,8 +7,8 @@ export default function MyButton(props) {
       <Button
         variant="contained"
         color={props.color}
-        value={props.nombre}
-        onClick={e => console.log(e)}
+        value={props.value}
+        onClick={e => props.onClickButton()}
       >
         {props.text}
       </Button>
