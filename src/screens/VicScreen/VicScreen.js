@@ -11,6 +11,7 @@ import GridComp from '../../components/CardComponent/CardComponent';
 import MenuBar from '../../components/MenuBar/MenuBar';
 // import Typography from '@material-ui/core/Typography';
 import { useStyles } from './VicScreenStyles';
+import Modal from '../../components/ModalComponent/ModalComponent';
 
 export default function VicScreen(props) {
 
@@ -72,11 +73,12 @@ export default function VicScreen(props) {
                     </Grid>
                     
                 </Grid>
-                <Grid item xs={12}  sm container direction="column">
+                <Grid item xs={12}  sm container direction="column" alignItems="flex-end">
                     <Grid item xs={12} md={5} lg={5} sm container>
-                <Button variant ="contained" color= {props.color} onClick={(e)=>console.log(e)}>
+                {/* <Button variant ="contained" color= {props.color} onClick={(e)=>console.log(e)}>
                         GUARDAR
-                    </Button>
+                </Button > */}
+                <Modal ></Modal>
                     </Grid>
                 </Grid>
 
