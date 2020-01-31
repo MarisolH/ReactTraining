@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import { useStyles } from './CardComponentStyles'
 export default function CardComponent(props) {
     const classes = useStyles();
+    const {children} = props;
 
     return  <Grid
         container
@@ -17,6 +18,18 @@ export default function CardComponent(props) {
         alignItems='center'
         className={classes.root}
     >
-       
+        <Card className={classes.neuphormism}>
+            <CardContent>
+                {children ? children : <React.Fragment>
+                    <Typography variant='h6' align='center' className={classes.title} color='textPrimary' gutterBottom>
+                        {props.title}
+                    </Typography>
+                    <Typography variant='caption' className={classes.text} color='textSecondary' gutterBottom>
+                        {props.text}
+                    </Typography>
+                </React.Fragment>
+                }
+            </CardContent>
+        </Card>
     </Grid>
 }
