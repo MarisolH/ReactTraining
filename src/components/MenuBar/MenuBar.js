@@ -22,7 +22,7 @@ function MenuBar(props) {
                         alignItems="center"
                     >
                         <Grid item xs={6} md >
-                            <IconButton focusVisible edge="start" className={classes.menuButton} onClick={() => props.history.push('/')} color="inherit" aria-label="menu">
+                            <IconButton  edge="start" className={classes.menuButton} onClick={() => props.history.push('/')} color="inherit" aria-label="menu">
                                 <img alt='' width={'100%'} className={classes.logo} src={require('../../assets/logo.png')}></img>
                             </IconButton>
                         </Grid>

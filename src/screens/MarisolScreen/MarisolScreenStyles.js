@@ -17,6 +17,9 @@ export const useStyles = makeStyles(theme => ({
         flex: 1,
         justifyContent: 'flex-end',
         padding: 10,
+    },
+    paddingroot:{
+        padding: '25px'
     }
 }));
 

@@ -5,9 +5,10 @@ export default function MyButton(props) {
   return (
     <div>
       <Button
-        variant="contained"
+        variant='contained'
         color={props.color}
         value={props.value}
+        size='medium'
         onClick={e => props.onClickButton()}
       >
         {props.text}

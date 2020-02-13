@@ -1,34 +1,34 @@
-// import { CLEAR_ALL_STATES } from '../actions/LoginActions';
-// import DataExample, * as fromDataExample from './FirstReducer.js';
+
+import { combineReducers } from 'redux'
 import DataMarisol, * as fromDataMarisol from './MarisolReducer.js'
+import TypesProducts, * as fromTypesProducts from './TypesProductsReducer.js'
 
-import { combineReducers } from 'redux';
-
-const appReducer = combineReducers({
+const rootReducer = combineReducers({
     DataMarisol,
+    TypesProducts
 });
-
-const rootReducer = (state, action) => {
-    // Clear all data in redux store to initial.
-    // if (action.type === CLEAR_ALL_STATES)
-        // state = undefined;
-    return appReducer(state, action);
-};
 
 export default rootReducer;
 
-// EXAMPLE OF SELECTORS
-// export const getDataExample = state =>
-//     fromDataExample.getDataExample(state.DataExample);
-// export const getDataExampleError = state =>
-//     fromDataExample.getDataExampleError(state.DataExample);
-// export const getDataExampleIsLoading = state =>
-//     fromDataExample.getDataExampleIsLoading(state.DataExample);
 
-//MARISOL REDUCER
 export const getDataMarisol = state =>
-    fromDataMarisol.getDataMarisol(state.DataExample);
+    fromDataMarisol.getDataMarisol(state.DataMarisol);
+
 export const getDataMarisolError = state =>
-    fromDataMarisol.getDataMarisolError(state.DataExample);
+    fromDataMarisol.getDataMarisolError(state.DataMarisol);
+
 export const getDataMarisolIsLoading = state =>
-    fromDataMarisol.getDataMarisolIsLoading(state.DataExample);
+    fromDataMarisol.getDataMarisolIsLoading(state.DataMarisol);
+
+//typesProducts
+
+export const getTypesProducts = state =>
+    fromTypesProducts.getTypesProducts(state.TypesProducts);
+
+export const getTypesProductsError = state =>
+    fromTypesProducts.getTypesProductsError(state.TypesProducts);
+
+export const getTypesProductsIsLoading = state =>
+    fromTypesProducts.getTypesProductsIsLoading(state.TypesProducts);
+
+    

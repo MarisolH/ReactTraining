@@ -8,7 +8,7 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
-import {styles} from './ModalComponentStyles'
+import { styles } from './ModalComponentStyles'
 
 
 const DialogTitle = withStyles(styles)(props => {
@@ -41,20 +41,20 @@ const DialogActions = withStyles(theme => ({
 export default function ModalComponent(props) {
   const { children, open } = props;
   const handleClose = () => {
+    props.onSave()
     props.setOpen(false);
   };
-console.log(props)
+  console.log(props)
   return (
     <div>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           {props.title}
         </DialogTitle>
-          {children ?  <DialogContent dividers>{children}</DialogContent> : <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+        {children ? <DialogContent dividers>{children}</DialogContent> : <Typography gutterBottom>
+          Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+          in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
           </Typography>}
-        
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">
             {props.confirmText}

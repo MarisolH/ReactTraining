@@ -1,37 +1,37 @@
+
 import { 
-    DATA_MARISOL_BEGIN, 
-    DATA_MARISOL_SUCCESS, 
-    DATA_MARISOL_FAILURE, 
-    CLEAR_DATA_MARISOL, 
-} from '../actions/MarisolActions';
+    TYPES_PRODUCTS_BEGIN, 
+    TYPES_PRODUCTS_SUCCESS, 
+    TYPES_PRODUCTS_FAILURE, 
+    CLEAR_TYPES_PRODUCTS, 
+} from '../actions/TypesProductsActions';
 
 const initialState = {
-    data: [],
+    data: {},
     isLoading: false,
     error:''
 };
 
-export default function DataMarisolReducer(state = initialState, action) {
+export default function DataExampleReducer(state = initialState, action) {
     switch (action.type) {
-        case DATA_MARISOL_BEGIN:
+        case TYPES_PRODUCTS_BEGIN:
             return {
                 ...state,
                 isLoading: true
             }
-        case DATA_MARISOL_SUCCESS:
-            console.log(action.payload.data)
-            let data = action.payload.data.data;
+        case TYPES_PRODUCTS_SUCCESS:
+            let data = action.payload.data;
             return {
                 ...state,
                 data,
                 isLoading: false,
             }
-        case DATA_MARISOL_FAILURE:
+        case TYPES_PRODUCTS_FAILURE:
             return {
                 ...state,
                 isLoading: false
             }
-        case CLEAR_DATA_MARISOL:
+        case CLEAR_TYPES_PRODUCTS:
             return {
                 ...state,
                 data: {},
@@ -42,13 +42,13 @@ export default function DataMarisolReducer(state = initialState, action) {
     }
 };
 
-export const getDataMarisol = state => {
+export const getTypesProducts = state => {
     return state.data
 }
-export const getDataMarisolError = state => {
+export const getTypesProductsError = state => {
     return state.error
 }
-export const getDataMarisolIsLoading = state => {
+export const getTypesProductsIsLoading = state => {
     return state.error
 }
 //FIRSTS

@@ -4,57 +4,42 @@ import { useStyles, styles } from './MarisolScreenStyles'
 import MenuBar from '../../components/MenuBar/MenuBar';
 import CardComponent from '../../components/CardComponent/CardComponent'
 import TextInput from '../../components/TextInput/TextInput'
-import Typography from '@material-ui/core/Typography'
+import AlertComponent from '../../components/ALertComponent/AlertComponent'
 import MyButton from '../../components/MyButton'
 import ModalComponent from '../../components/ModalComponent/ModalComponent'
-
+import MarisolContainer from '../../containers/MarisolContainer/MarisolContainer'
+import TableComponent from '../../components/TableComponent/TableComponent'
+import SelectInput from '../../components/SelectInput/SelectInput'
+import ApiService from '../../services/ApiService'
+import TypesProductsContainer from '../../containers/TypesProductsContainer'
 
 export default function MarisolScreen(props) {
     const classes = useStyles();
-    const [name, setName] = useState();
-    const [lastName, setLastName] = useState();
-    const [phone, setPhone] = useState();
-    const [email, setEmail] = useState();
+    const [nameProduct, setNameProduct] = useState('');
+    const [costProduct, setCostProduct] = useState(0);
+    const [idTypeProducto, setIdTypeProducto] = useState('');
     const [open, setOpen] = useState(false);
+    const [openAlert, setOpenAlert] = useState(false);
 
     const handleOpenModal = () => {
         setOpen(true)
     }
+    const saveProducts = () => {
+        ApiService.saveProducts({ nameProduct, costProduct, idTypeProducto }).then(
+            res => {
+                console.log(res)
+            },
 
-    const structure = () => {
-        return <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-        >
-            <Grid item xs={4} md container >
-                <img alt='ms' width={'100%'} styles={styles.image} src={require('../../assets/miguel.png')}></img>
-            </Grid>
-            <Grid item xs={8} md container className={classes.gridInputs} >
-                <Grid item xs={12} className={classes.gridItems} md >
-                    <Typography variant='h5' align='left' className={classes.title} color='textPrimary' gutterBottom>
-                        Información Personal
-                        </Typography>
-                </Grid>
-                <Grid item xs={12} className={classes.gridItems} md >
-                    <TextInput label='Nombre' value={name} setValue={setName}></TextInput>
-                </Grid>
-                <Grid item xs={12} className={classes.gridItems} md >
-                    <TextInput label='Apellido' value={lastName} setValue={setLastName}></TextInput>
-                </Grid>
-                <Grid item xs={12} className={classes.gridItems} md >
-                    <TextInput label='Telefono' value={phone} setValue={setPhone}></TextInput>
-                </Grid>
-                <Grid item xs={12} className={classes.gridItems} md >
-                    <TextInput label='Correo' value={email} setValue={setEmail}></TextInput>
-                </Grid>
-                <Grid item xs={12} className={classes.buttonItem} >
-                    <MyButton text='Generar' color='primary' onClickButton={handleOpenModal} />
-                </Grid>
-            </Grid>
-        </Grid>
+            error => {
+                setOpenAlert(true)
+            }
+        );
+
     }
+    const onChangeProductsType = (e) => {
+        setIdTypeProducto(e.target.value)
+    }
+
     const modalContent = () => {
         return <Grid
             container
@@ -62,27 +47,29 @@ export default function MarisolScreen(props) {
             justify="center"
             alignItems="center"
         >
-            <Grid item xs={12}  >
-                <Typography variant='title' align='left' className={classes.title} color='textPrimary' gutterBottom>
-                    {name}
-                </Typography>
+            <Grid item xs={8} md container className={classes.gridInputs} >
+                <Grid item xs={12} className={classes.gridItems} md >
+                    <TextInput label='Nombre del producto' value={nameProduct} setValue={setNameProduct}></TextInput>
+                </Grid>
+                <Grid item xs={12} className={classes.gridItems} md >
+                    <TextInput label='Precio Unitario' value={costProduct} type={'number'} setValue={setCostProduct}></TextInput>
+                </Grid>
+                <Grid item xs={12} className={classes.gridItems} md >
+                    <TypesProductsContainer>
+                        {(params) => {
+                            return (
+                                <SelectInput title='Tipo de producto'
+                                    value={idTypeProducto}
+                                    setValue={setIdTypeProducto}
+                                    items={params.dataTypesProducts.data !== undefined ? params.dataTypesProducts.data : []}
+                                    onChange={onChangeProductsType}
+                                />
+                            )
+                        }
+                        }
+                    </TypesProductsContainer>
+                </Grid>
             </Grid>
-            <Grid item xs={12}  >
-                <Typography variant='title' align='left' className={classes.title} color='textPrimary' gutterBottom>
-                    {lastName}
-                </Typography>
-            </Grid>
-            <Grid item xs={12}  >
-                <Typography variant='title' align='left' className={classes.title} color='textPrimary' gutterBottom>
-                    {phone}
-                </Typography>
-            </Grid>
-            <Grid item xs={12}  >
-                <Typography variant='title' align='left' className={classes.title} color='textPrimary' gutterBottom>
-                    {email}
-                </Typography>
-            </Grid>
-
         </Grid>
     }
     return <React.Fragment>
@@ -103,12 +90,27 @@ export default function MarisolScreen(props) {
             alignItems="center"
             className={classes.rootContainer}
         >
-            <CardComponent>
-                {structure()}
-            </CardComponent>
-            <ModalComponent title='Información personal' confirmText={'Aceptar'} open={open} setOpen={setOpen} >
+            <Grid item xs={12} sm container className={classes.paddingroot} >
+                <MyButton text='Agregar Producto' color='primary' onClickButton={handleOpenModal}></MyButton>
+            </Grid>
+            <Grid item xs={12} sm container className={classes.paddingroot}>
+                <MarisolContainer >
+                    {(editParams) => {
+                        console.log(editParams)
+                        return (
+                            <TableComponent
+                                rowData={editParams === undefined ? []: editParams.dataMarisol}
+                                dataTableCell={editParams.dataTableCell === undefined ? [] : editParams.dataTableCell}
+                            />
+                        )
+                    }
+                    }
+                </MarisolContainer>
+            </Grid>
+            {open ? <ModalComponent title='Agregar nuevo producto' confirmText={'Guardar'} open={open} setOpen={setOpen} onSave={saveProducts} >
                 {modalContent()}
-            </ModalComponent>
+            </ModalComponent> : ''}
+            <AlertComponent openAlert={openAlert} setOpenAlert={setOpenAlert} type={'error'} message='Ocurrio un error al crear producto. Intente más tarde!' />
         </Grid>
     </React.Fragment>
 }

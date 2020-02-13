@@ -5,10 +5,10 @@ export const DATA_MARISOL_SUCCESS = 'DATA_MARISOL_SUCCESS';
 export const DATA_MARISOL_FAILURE = 'DATA_MARISOL_FAILURE';
 export const CLEAR_DATA_MARISOL = 'CLEAR_DATA_MARISOL';
 
-export function fetchDataMarisol() {
+export function fetchDataMarisol(){
     return async dispatch => {
         dispatch(dataMarisolBegin());
-        await ApiService.getDataMarisol()
+        await ApiService.getProducts()
             .then(
                 result => {
                     dispatch(dataMarisolSuccess(result));
