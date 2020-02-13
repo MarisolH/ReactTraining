@@ -8,7 +8,7 @@ export const CLEAR_DATA_JAVIER = 'CLEAR_DATA_JAVIER';
 export function fetchDataJavier() {
     return async dispatch => {
         dispatch(dataJavierBegin());
-        await ApiService.getDataJavier()
+        await ApiService.getProducts()
             .then(
                 result => {
                     dispatch(dataJavierSuccess(result));

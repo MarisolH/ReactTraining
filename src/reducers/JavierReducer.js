@@ -3,7 +3,7 @@ import {
     DATA_JAVIER_SUCCESS, 
     DATA_JAVIER_FAILURE, 
     CLEAR_DATA_JAVIER, 
-} from '../actions/FirstActions';
+} from '../actions/JavierActions';
 
 const initialState = {
     data: {},
@@ -19,7 +19,8 @@ export default function DataJavierReducer(state = initialState, action) {
                 isLoading: true
             }
         case DATA_JAVIER_SUCCESS:
-            let data = action.payload.data;
+            console.log(action.payload.data);
+            let data = action.payload.data.data;
             return {
                 ...state,
                 data,
