@@ -2,10 +2,13 @@
 // import DataExample, * as fromDataExample from './FirstReducer.js';
 import DataMarisol, * as fromDataMarisol from './MarisolReducer.js'
 
+import DataVictor, * as fromDataVictor from './VictorReducer.js'
+
+
 import { combineReducers } from 'redux';
 
 const appReducer = combineReducers({
-    DataMarisol,
+    DataMarisol, DataVictor,
 });
 
 const rootReducer = (state, action) => {
@@ -32,3 +35,11 @@ export const getDataMarisolError = state =>
     fromDataMarisol.getDataMarisolError(state.DataExample);
 export const getDataMarisolIsLoading = state =>
     fromDataMarisol.getDataMarisolIsLoading(state.DataExample);
+
+
+export const getDataVictor = state =>
+    fromDataVictor.getDataVictor(state.DataVictor);
+export const getDataVictorError = state =>
+    fromDataVictor.getDataVictorError(state.DataVictor);
+export const getDataVictorIsLoading = state =>
+    fromDataVictor.getDataVictorIsLoading(state.DataVictor);
