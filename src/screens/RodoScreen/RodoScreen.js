@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { useStyles } from './RodoScreenStyles';
 import CardComponent from '../../components/CardComponent/CardComponent';
 import TextInput from '../../components/TextInput/TextInput';
+import RodolfoContainer from '../../containers/RodolfoContainer/RodolfoContainer.js'
 
 export default function RodoScreen(props) {
     const classes = useStyles()
@@ -84,6 +85,13 @@ export default function RodoScreen(props) {
 
             </CardComponent>
 
+            <RodolfoContainer>
+                {
+                    (editparams)=>{console.log(editparams)
+                    return <div></div>
+                    }
+                }
+            </RodolfoContainer>
 
 
 

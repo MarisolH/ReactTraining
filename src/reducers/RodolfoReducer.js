@@ -3,7 +3,7 @@ import {
     DATA_RODOLFO_SUCCESS, 
     DATA_RODOLFO_FAILURE, 
     CLEAR_DATA_RODOLFO, 
-} from '../actions/RodolfoActions';
+} from '../actions/RodolfoAction';
 
 const initialState = {
     data: {},
@@ -19,6 +19,7 @@ export default function DataRodolfoReducer(state = initialState, action) {
                 isLoading: true
             }
         case DATA_RODOLFO_SUCCESS:
+            console.log(action.payload.data)
             let data = action.payload.data;
             return {
                 ...state,

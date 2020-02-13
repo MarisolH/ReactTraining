@@ -1,4 +1,5 @@
 import { ApiAxios, AuthAxios } from "../services/Axios";
+const URI_DEV = 'https://appsdev.cotemar.com.mx/TiendaApi/'
 
 export default {
     //--
@@ -11,6 +12,15 @@ export default {
         };
         return this.makeRequest({ method, url, data });
     },
+
+        getProducts(){
+            const url = `${URI_DEV}api/Products`;
+            const method = 'GET';
+            return this.makeAuthorizedRequest({url,method})
+        },
+
+        
+
 
     async makeRequest(requestData = {}) {
 

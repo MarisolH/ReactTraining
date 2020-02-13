@@ -9,13 +9,13 @@ export const CLEAR_DATA_RODOLFO = 'CLEAR_DATA_RODOLFO';
 export function fetchDataRodolfo() {
     return async dispatch => {
         dispatch(dataRodolfoBegin());
-        await ApiService.getDataRodolfo()
+        await ApiService.getProducts()
             .then(
                 result => {
                     dispatch(dataRodolfoSuccess(result));
                 },
                 error => {
-                    dispatch(dataExampleRodolfo());
+                    dispatch(dataRodolfoError());
                     // eslint-disable-next-line no-throw-literal
                     throw ({ error: error, message: 'An error ocurred' });
                 }

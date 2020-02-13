@@ -1,11 +1,13 @@
 // import { CLEAR_ALL_STATES } from '../actions/LoginActions';
 // import DataExample, * as fromDataExample from './FirstReducer.js';
 import DataMarisol, * as fromDataMarisol from './MarisolReducer.js'
+import DataRodolfo, * as fromDataRodolfo from './RodolfoReducer.js'
 
 import { combineReducers } from 'redux';
 
 const appReducer = combineReducers({
     DataMarisol,
+    DataRodolfo,
 });
 
 const rootReducer = (state, action) => {
@@ -32,3 +34,12 @@ export const getDataMarisolError = state =>
     fromDataMarisol.getDataMarisolError(state.DataExample);
 export const getDataMarisolIsLoading = state =>
     fromDataMarisol.getDataMarisolIsLoading(state.DataExample);
+
+    
+//Rodolfo REDUCER
+export const getDataRodolfo = state =>
+fromDataRodolfo.getDataRodolfo(state.DataRodolfo);
+export const getDataRodolfoError = state =>
+fromDataRodolfo.getDataRodolfoError(state.DataRodolfo);
+export const getDataRodolfoIsLoading = state =>
+fromDataRodolfo.getDataRodolfoIsLoading(state.DataRodolfo);
