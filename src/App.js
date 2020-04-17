@@ -5,6 +5,7 @@ import MigueScreen from './screens/MigueScreen'
 import JaviScreen from './screens/JaviScreen'
 import VicScreen from './screens/VicScreen'
 import RodoScreen from './screens/RodoScreen'
+import BebidasScreen from './screens/BebidasScreen'
 
 export default () => {
     return <React.Fragment>
@@ -15,6 +16,7 @@ export default () => {
                 <Route path={'/JaviScreen'} component={JaviScreen}></Route>
                 <Route path={'/VicScreen'} component={VicScreen}></Route>
                 <Route path={'/RodoScreen'} component={RodoScreen}></Route>
+                <Route path={'/BebidasScreen'} component={BebidasScreen}></Route>
             </Switch>
         </BrowserRouter>
     </React.Fragment>

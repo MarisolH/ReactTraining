@@ -20,8 +20,15 @@ export const useStyles = makeStyles({
         marginBottom: 12,
     },
     neuphormism: {
+        minHeight:'185px!important',
         borderRadius: '4px',
         background: ' #ffffff',
         boxShadow: '8px 8px 25px #e3e3e3, -8px -8px 25px #ffffff',
+    },
+    actions: {
+        bottom: '-30px',
+        direction: 'rtl',
+        position: 'relative',
+        padding: '15PX',
     }
 });

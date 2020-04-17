@@ -22,3 +22,11 @@ ReactDOM.render(
   </Provider>,
     rootElement);
 register();
+
+/// for serverless
+/*ReactDOM.hydrate(
+   <Provider store={store}>
+      <App />
+  </Provider>,
+    rootElement
+)*/
